@@ -1,0 +1,2 @@
+# PlanBee
+PlanBee - Event organiser
