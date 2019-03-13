@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_my_events"
+            android:icon="@drawable/ic_event"
+            android:title="@string/nav_my_events_title" />
+
+        <item
+            android:id="@+id/nav_groups"
+            android:icon="@drawable/ic_groups"
+            android:title="@string/nav_groups_title" />
+
+        <item
+            android:id="@+id/nav_browse_events"
+            android:icon="@drawable/ic_event"
+            android:title="@string/nav_browse_events_title" />
+
+        <item
+            android:id="@+id/nav_advanced_search"
+            android:icon="@drawable/ic_search"
+            android:title="@string/nav_advanced_search_title" />
+
+        <item
+            android:id="@+id/nav_calendar"
+            android:icon="@drawable/ic__calendar"
+            android:title="@string/nav_calendar_title" />
+
+    </group>
+</menu>

@@ -5,4 +5,11 @@
     <string name="nearby_events_title">Nearby events</string>
     <string name="recommended_events_title">Recommended events</string>
 
+    <string name="nav_groups_title">Groups</string>
+    <string name="nav_events_title">Events</string>
+    <string name="nav_my_events_title">My events</string>
+    <string name="nav_advanced_search_title">Advanced search</string>
+    <string name="nav_browse_events_title">Browse events</string>
+    <string name="nav_calendar_title">Calendar</string>
+
 </resources>
