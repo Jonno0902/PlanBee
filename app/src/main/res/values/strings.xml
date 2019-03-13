@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">PlanBee</string>
+
+    <string name="upcoming_events_title">Upcoming events</string>
+    <string name="nearby_events_title">Nearby events</string>
+    <string name="recommended_events_title">Recommended events</string>
+
 </resources>
