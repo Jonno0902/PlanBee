@@ -11,5 +11,11 @@
     <string name="nav_advanced_search_title">Advanced search</string>
     <string name="nav_browse_events_title">Browse events</string>
     <string name="nav_calendar_title">Calendar</string>
+    <string name="nav_bottom_settings">Settings</string>
+    <string name="nav_bottom_help">Help</string>
+    <string name="nav_bottom_contact_us">Contact us</string>
+    <string name="nav_bottom_send_feedback">Send feedback</string>
+    <string name="nav_bottom_privacy_policy">Privacy policy</string>
+    <string name="nav_bottom_tos">Terms of service</string>
 
 </resources>
