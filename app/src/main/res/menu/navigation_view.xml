@@ -2,6 +2,11 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android" >
     <group android:checkableBehavior="single">
         <item
+            android:id="@+id/nav_login"
+            android:icon="@drawable/ic_login"
+            android:title="@string/nav_login_title" />
+
+        <item
             android:id="@+id/nav_my_events"
             android:icon="@drawable/ic_event"
             android:title="@string/nav_my_events_title" />
@@ -23,7 +28,7 @@
 
         <item
             android:id="@+id/nav_calendar"
-            android:icon="@drawable/ic__calendar"
+            android:icon="@drawable/ic_calendar"
             android:title="@string/nav_calendar_title" />
     </group>
 </menu>
