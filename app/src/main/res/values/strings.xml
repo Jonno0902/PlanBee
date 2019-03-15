@@ -7,6 +7,15 @@
 
     <string name="home_title">PlanBee</string>
 
+    <string name="login_title">Login to PlanBee</string>
+    <string name="login_forgot_password_text">Forgotten your password? Reset Password</string>
+    <string name="login_create_account_text">Don’t have an account? Create Account</string>
+    <string name="login_login_button">Login</string>
+    <string name="login_guest_login_button">Guest Login</string>
+    <string name="login_logo_description">PlanBee logo grey</string>
+    <string name="login_username_hint">Username or email address</string>
+    <string name="login_password_hint">Password</string>
+
     <string name="nav_groups_title">Groups</string>
     <string name="nav_events_title">Events</string>
     <string name="nav_my_events_title">My events</string>
