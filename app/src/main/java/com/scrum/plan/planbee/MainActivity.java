@@ -2,11 +2,16 @@ package com.scrum.plan.planbee;
 
 import android.content.Intent;
 import android.support.design.widget.NavigationView;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.Gravity;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -20,8 +25,10 @@ public class MainActivity extends AppCompatActivity {
     private int[] scrollerImages = new int[]{R.drawable.toy_story_4_icon, R.drawable.reading_festival_icon, R.drawable.bournemouth_fc_logo, R.drawable.basketball_icon, R.drawable.board_game_cafe_icon, R.drawable.sand_sculpture_logo};
     private String[] scrollerTitles = new String[]{"Toy Story 4", "Reading festival", "Bournemouth FC", "Basketball", "Board game cafe", "Sand sculpture festival"};
 
-    private NavigationView navView;
+    private ImageButton btnOpenNav;
 
+    private NavigationView navView;
+    private DrawerLayout drawLayout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,6 +73,15 @@ public class MainActivity extends AppCompatActivity {
                         break;*/
                 }
                 return false;
+            }
+        });
+
+        drawLayout = findViewById(R.id.drawer_layout);
+        btnOpenNav = findViewById(R.id.btn_open_nav);
+        btnOpenNav.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                drawLayout.openDrawer(Gravity.LEFT);
             }
         });
     }
