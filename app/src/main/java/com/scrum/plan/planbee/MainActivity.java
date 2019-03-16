@@ -71,10 +71,10 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.nav_group_chats:
                         startActivity(new Intent(MainActivity.this, GroupChats.class));
                         break;
-                    /*case R.id.nav_groups:
-                        startActivity(new Intent(MainActivity.this, GroupsActivity.class));
+                    case R.id.nav_map:
+                        startActivity(new Intent(MainActivity.this, MapActivity.class));
                         break;
-                    case R.id.nav_browse_events:
+                    /*case R.id.nav_browse_events:
                         startActivity(new Intent(MainActivity.this, BrowseEventsActivity.class));
                         break;
                     case R.id.nav_advanced_search:
