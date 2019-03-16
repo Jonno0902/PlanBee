@@ -8,3 +8,6 @@
 /build
 /captures
 .externalNativeBuild
+app/src/main/res/layout/activity_group_chats_wNAVNOWORK.xml
+app/src/main/res/layout/activity_group_chats_backup2.xml
+app/src/main/res/layout/activity_group_chats_backup.xml

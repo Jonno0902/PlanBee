@@ -12,6 +12,7 @@
     <string name="home_title">PlanBee</string>
 
     <string name="group_chats_title">Group chats</string>
+    <string name="group_chats_icon_description">Group profile picture icon</string>
 
     <string name="login_title">Login to PlanBee</string>
     <string name="login_forgot_password_text">Forgotten your password? Reset Password</string>
@@ -22,7 +23,7 @@
     <string name="login_username_hint">Username or email address</string>
     <string name="login_password_hint">Password</string>
 
-    <string name="nav_groups_title">Groups</string>
+    <string name="nav_group_chats_title">Group chats</string>
     <string name="nav_events_title">Events</string>
     <string name="nav_my_events_title">My events</string>
     <string name="nav_advanced_search_title">Advanced search</string>

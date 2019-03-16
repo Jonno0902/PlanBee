@@ -34,13 +34,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        upcomingView = (RecyclerView) findViewById(R.id.upcoming_events_recycler);
-        nearbyView = (RecyclerView) findViewById(R.id.nearby_events_recycler);
-        recommendedView = (RecyclerView) findViewById(R.id.recommended_events_recycler);
-        sponsoredView = (RecyclerView) findViewById(R.id.sponsored_events_recycler);
-        popularView = (RecyclerView) findViewById(R.id.popular_events_recycler);
-        top10View = (RecyclerView) findViewById(R.id.top10_events_recycler);
-        newView = (RecyclerView) findViewById(R.id.new_events_recycler);
+        upcomingView = findViewById(R.id.upcoming_events_recycler);
+        nearbyView = findViewById(R.id.nearby_events_recycler);
+        recommendedView = findViewById(R.id.recommended_events_recycler);
+        sponsoredView = findViewById(R.id.sponsored_events_recycler);
+        popularView = findViewById(R.id.popular_events_recycler);
+        top10View = findViewById(R.id.top10_events_recycler);
+        newView = findViewById(R.id.new_events_recycler);
 
         imageModelArrayList = getEvents();
         adapter = new ScrollerAdapter(this, imageModelArrayList);
