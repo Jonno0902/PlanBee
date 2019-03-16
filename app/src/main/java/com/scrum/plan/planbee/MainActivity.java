@@ -68,10 +68,10 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.nav_login:
                         startActivity(new Intent(MainActivity.this, LoginActivity.class));
                         break;
-                    /*case R.id.nav_my_events:
-                        startActivity(new Intent(MainActivity.this, MyEventsActivity.class));
+                    case R.id.nav_group_chats:
+                        startActivity(new Intent(MainActivity.this, GroupChats.class));
                         break;
-                    case R.id.nav_groups:
+                    /*case R.id.nav_groups:
                         startActivity(new Intent(MainActivity.this, GroupsActivity.class));
                         break;
                     case R.id.nav_browse_events:
