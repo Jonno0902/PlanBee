@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 
 public class MainActivity extends AppCompatActivity {
-    private RecyclerView upcomingView, nearbyView, recommendedView;
+    private RecyclerView upcomingView, nearbyView, recommendedView, sponsoredView, popularView, top10View, newView;
     private ArrayList<ScrollerModel> imageModelArrayList;
     private ScrollerAdapter adapter;
 
@@ -37,15 +37,27 @@ public class MainActivity extends AppCompatActivity {
         upcomingView = (RecyclerView) findViewById(R.id.upcoming_events_recycler);
         nearbyView = (RecyclerView) findViewById(R.id.nearby_events_recycler);
         recommendedView = (RecyclerView) findViewById(R.id.recommended_events_recycler);
+        sponsoredView = (RecyclerView) findViewById(R.id.sponsored_events_recycler);
+        popularView = (RecyclerView) findViewById(R.id.popular_events_recycler);
+        top10View = (RecyclerView) findViewById(R.id.top10_events_recycler);
+        newView = (RecyclerView) findViewById(R.id.new_events_recycler);
 
         imageModelArrayList = getEvents();
         adapter = new ScrollerAdapter(this, imageModelArrayList);
         upcomingView.setAdapter(adapter);
         nearbyView.setAdapter(adapter);
         recommendedView.setAdapter(adapter);
+        sponsoredView.setAdapter(adapter);
+        popularView.setAdapter(adapter);
+        top10View.setAdapter(adapter);
+        newView.setAdapter(adapter);
         upcomingView.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, false));
         nearbyView.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, false));
         recommendedView.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, false));
+        sponsoredView.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, false));
+        popularView.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, false));
+        top10View.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, false));
+        newView.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, false));
 
         navView = findViewById(R.id.nav_view);
         navView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {

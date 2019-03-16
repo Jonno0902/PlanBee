@@ -70,6 +70,56 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/nearby_events_recycler" />
 
+    <TextView
+        android:id="@+id/sponsored_events_text"
+        android:layout_width="380dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="4dp"
+        android:text="@string/sponsored_events_title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/recommended_events_recycler" />
+
+    <TextView
+        android:id="@+id/popular_events_text"
+        android:layout_width="380dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="4dp"
+        android:text="@string/popular_events_title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sponsored_events_recycler" />
+
+    <TextView
+        android:id="@+id/top10_events_text"
+        android:layout_width="380dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="4dp"
+        android:text="@string/top10_events_title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/popular_events_recycler" />
+
+    <TextView
+        android:id="@+id/new_events_text"
+        android:layout_width="380dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="4dp"
+        android:text="@string/new_events_title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/top10_events_recycler" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recommended_events_recycler"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="1dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/recommended_events_text" />
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/upcoming_events_recycler"
         android:layout_width="match_parent"
@@ -90,12 +140,39 @@
         app:layout_constraintTop_toBottomOf="@+id/nearby_events_text" />
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/recommended_events_recycler"
+        android:id="@+id/sponsored_events_recycler"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="1dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/recommended_events_text" />
+        app:layout_constraintTop_toBottomOf="@+id/sponsored_events_text" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/popular_events_recycler"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:padding="1dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/popular_events_text" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/top10_events_recycler"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="1dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/top10_events_text" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/new_events_recycler"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="1dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/new_events_text" />
 
 </android.support.constraint.ConstraintLayout>
