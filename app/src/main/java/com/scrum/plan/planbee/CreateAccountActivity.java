@@ -6,22 +6,20 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class LoginActivity extends AppCompatActivity {
-
-    private Button btnCreateAccount;
+public class CreateAccountActivity extends AppCompatActivity {
+    private Button btnCancel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_create_account);
 
-        btnCreateAccount = findViewById(R.id.login_create_account_button);
-        btnCreateAccount.setOnClickListener(new View.OnClickListener() {
+        btnCancel = findViewById(R.id.create_account_cancel_button);
+        btnCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(LoginActivity.this, CreateAccountActivity.class));
+                finish();
             }
         });
-
     }
 }

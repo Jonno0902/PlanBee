@@ -39,7 +39,8 @@
 
         <activity
             android:name=".MapActivity"
-            android:label="@string/title_activity_map"></activity>
+            android:label="@string/title_activity_map" />
+        <activity android:name=".CreateAccountActivity"></activity>
     </application>
 
 </manifest>

@@ -71,15 +71,6 @@
         app:layout_constraintTop_toBottomOf="@+id/login_password_input"
         tools:text="@string/login_forgot_password_text" />
 
-    <TextView
-        android:id="@+id/login_create_account_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/login_create_account_text"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/login_forgot_password_text" />
-
     <Button
         android:id="@+id/login_login_button"
         android:layout_width="0dp"
@@ -88,19 +79,19 @@
         android:layout_marginStart="50dp"
         android:layout_marginTop="24dp"
         android:text="@string/login_login_button"
-        app:layout_constraintBottom_toTopOf="@+id/login_guest_login_button"
+        app:layout_constraintBottom_toTopOf="@+id/login_create_account_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/login_create_account_text" />
+        app:layout_constraintTop_toBottomOf="@+id/login_forgot_password_text" />
 
     <Button
-        android:id="@+id/login_guest_login_button"
+        android:id="@+id/login_create_account_button"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="50dp"
         android:layout_marginStart="50dp"
         android:layout_marginTop="8dp"
-        android:text="@string/login_guest_login_button"
+        android:text="@string/login_create_account_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/login_login_button" />
