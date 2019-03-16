@@ -1,16 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android" >
-    <group android:checkableBehavior="single">
+    <group
+        android:id="@+id/nav_top"
+        android:checkableBehavior="single">
         <item
             android:id="@+id/nav_login"
             android:icon="@drawable/ic_login"
             android:title="@string/nav_login_title" />
-
         <item
             android:id="@+id/nav_create_account"
             android:icon="@drawable/ic_create_account"
             android:title="@string/nav_create_account_title" />
+    </group>
 
+    <group
+        android:id="@+id/nav_bottom"
+        android:checkableBehavior="none">
         <item
             android:id="@+id/nav_my_events"
             android:icon="@drawable/ic_event"
@@ -41,4 +46,5 @@
             android:icon="@drawable/ic_map"
             android:title="@string/nav_map_title" />
     </group>
+
 </menu>
