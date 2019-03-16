@@ -68,6 +68,9 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.nav_login:
                         startActivity(new Intent(MainActivity.this, LoginActivity.class));
                         break;
+                    case R.id.nav_create_account:
+                        startActivity(new Intent(MainActivity.this, CreateAccountActivity.class));
+                        break;
                     case R.id.nav_group_chats:
                         startActivity(new Intent(MainActivity.this, GroupChats.class));
                         break;
