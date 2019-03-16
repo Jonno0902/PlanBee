@@ -32,7 +32,7 @@ public class GroupChats extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_group_chats);
 
-        /*navView = findViewById(R.id.nav_view);
+        navView = findViewById(R.id.nav_view);
         navView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(MenuItem navItem) {
@@ -56,7 +56,7 @@ public class GroupChats extends AppCompatActivity {
             public void onClick(View v) {
                 drawLayout.openDrawer(Gravity.LEFT);
             }
-        });*/
+        });
 
         // Chats recycler
         chatsView = findViewById(R.id.chats_recycler);
