@@ -3,4 +3,10 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="sch_creamyGreen">#DFF2D8</color>
+    <color name="sch_weakGreen">#C6DEA6</color>
+    <color name="sch_yellow">#E5F94A</color>
+    <color name="sch_brown">#7A6263</color>
+    <color name="sch_weakBrown">#CED097</color>
+
 </resources>

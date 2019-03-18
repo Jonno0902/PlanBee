@@ -38,11 +38,23 @@ public class GroupChats extends AppCompatActivity {
             public boolean onNavigationItemSelected(MenuItem navItem) {
                 int itemId = navItem.getItemId();
                 switch (itemId) {
-                    case R.id.nav_login: // Will later have to be logged in to view group chats anyway
+                    case R.id.nav_login:
                         startActivity(new Intent(GroupChats.this, LoginActivity.class));
                         break;
+                    case R.id.nav_create_account:
+                        startActivity(new Intent(GroupChats.this, CreateAccountActivity.class));
+                        break;
                     case R.id.nav_group_chats:
-                        // Already open
+                        //already open
+                        break;
+                    case R.id.nav_map:
+                        startActivity(new Intent(GroupChats.this, MapActivity.class));
+                        break;
+                    case R.id.nav_browse_events:
+                        startActivity(new Intent(GroupChats.this, MainActivity.class));
+                        break;
+                    case R.id.nav_calendar:
+                        startActivity(new Intent(GroupChats.this, CalendarActivity.class));
                         break;
                 }
                 return false;
