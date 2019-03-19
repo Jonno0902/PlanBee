@@ -77,6 +77,9 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.nav_map:
                         startActivity(new Intent(MainActivity.this, MapActivity.class));
                         break;
+                    case R.id.nav_my_events:
+                        startActivity(new Intent(MainActivity.this, MyEventsActivity.class));
+                        break;
                     /*case R.id.nav_browse_events:
                         startActivity(new Intent(MainActivity.this, BrowseEventsActivity.class));
                         break;
