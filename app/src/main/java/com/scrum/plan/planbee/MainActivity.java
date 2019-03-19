@@ -83,9 +83,10 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.nav_advanced_search:
                         startActivity(new Intent(MainActivity.this, AdvancedSearchActivity.class));
                         break;
+                    */
                     case R.id.nav_calendar:
                         startActivity(new Intent(MainActivity.this, CalendarActivity.class));
-                        break;*/
+                        break;
                 }
                 return false;
             }
