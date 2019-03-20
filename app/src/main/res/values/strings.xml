@@ -14,6 +14,9 @@
     <string name="group_chats_title">Group chats</string>
     <string name="group_chats_icon_description">Group profile picture icon</string>
 
+    <string name="my_events_title">My events</string>
+    <string name="my_events_icon_description">Icon for an event</string>
+
     <string name="login_title">Login to PlanBee</string>
     <string name="login_forgot_password_text">Forgotten your password? Reset Password</string>
     <string name="login_create_account_text">Don’t have an account? Create Account</string>
