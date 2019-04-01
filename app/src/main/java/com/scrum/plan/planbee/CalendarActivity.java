@@ -82,6 +82,7 @@ CalendarActivity extends AppCompatActivity {
         txtEventTitle = findViewById(R.id.calendarText);
         txtEventTitle.setText("No events today");
 
+
         calendar.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
             public void onSelectedDayChange(CalendarView view, int year, int month, int dayOfMonth) {
