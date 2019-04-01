@@ -9,12 +9,16 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.Gravity;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageButton;
 
 import java.util.ArrayList;
 
 public class MyEventsActivity extends AppCompatActivity {
+
+    public static final String EXTRA_POS = "com.scrum.plan.planbee.IMG_POS";
+
     private RecyclerView eventsView;
     private ArrayList<MyEventsModel> eventsArrayList;
     private MyEventsAdapter adapter;
@@ -77,6 +81,24 @@ public class MyEventsActivity extends AppCompatActivity {
         eventsArrayList = getMyEvents();
         adapter = new MyEventsAdapter(this, eventsArrayList);
         eventsView.setAdapter(adapter);
+        eventsView.addOnItemTouchListener(
+                new RecyclerItemClickListener(this, eventsView ,new RecyclerItemClickListener.OnItemClickListener() {
+
+            @Override
+            public void onItemClick(View view, int position) {
+                Intent intent = new Intent(MyEventsActivity.this, ViewEventActivity.class);
+                intent.putExtra(EXTRA_POS, position);
+                startActivity(intent);
+            }
+
+            @Override
+            public void onLongItemClick(View view, int position) {
+                        // do whatever
+            }
+
+                })
+        );
+
         eventsView.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.VERTICAL, false));
     }
 

@@ -58,6 +58,9 @@ CalendarActivity extends AppCompatActivity {
                     case R.id.nav_calendar:
                         //already here
                         break;
+                    case R.id.nav_my_events:
+                        startActivity(new Intent(CalendarActivity.this, CalendarActivity.class));
+                        break;
                 }
                 return false;
             }

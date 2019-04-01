@@ -19,13 +19,13 @@
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity android:name=".LoginActivity" />
         <activity android:name=".GroupChats" />
         <activity android:name=".CalendarActivity" />
+
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -42,7 +42,13 @@
             android:name=".MapActivity"
             android:label="@string/title_activity_map" />
         <activity android:name=".CreateAccountActivity" />
-        <activity android:name=".MyEventsActivity"></activity>
+        <activity android:name=".MyEventsActivity"/>
+
+        <activity android:name=".ViewEventActivity"
+            android:parentActivityName=".MyEventsActivity">
+        </activity>
+
+
     </application>
 
 </manifest>
