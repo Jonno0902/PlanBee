@@ -20,7 +20,8 @@ import java.time.MonthDay;
 import java.time.format.TextStyle;
 import java.util.Date;
 
-public class CalendarActivity extends AppCompatActivity {
+public class
+CalendarActivity extends AppCompatActivity {
     private NavigationView navView;
     private DrawerLayout drawLayout;
     private ImageButton btnOpenNav;
