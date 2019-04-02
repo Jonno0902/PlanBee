@@ -19,6 +19,7 @@
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -42,13 +43,12 @@
             android:name=".MapActivity"
             android:label="@string/title_activity_map" />
         <activity android:name=".CreateAccountActivity" />
-        <activity android:name=".MyEventsActivity"/>
-
-        <activity android:name=".ViewEventActivity"
+        <activity android:name=".MyEventsActivity" />
+        <activity
+            android:name=".ViewEventActivity"
             android:parentActivityName=".MyEventsActivity">
         </activity>
-
-
+        <activity android:name=".SettingsActivity"></activity>
     </application>
 
 </manifest>
