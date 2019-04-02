@@ -31,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
     private int[] eventIDs = new int[]{10,11,12,13,14,15};
 
     private ImageButton btnOpenNav;
+    private ImageButton btnOpenSettings;
 
     private NavigationView navView;
     private DrawerLayout drawLayout;
@@ -128,6 +129,15 @@ public class MainActivity extends AppCompatActivity {
                 drawLayout.openDrawer(Gravity.LEFT);
             }
         });
+
+        btnOpenSettings = findViewById(R.id.btn_open_settings);
+        btnOpenSettings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private ArrayList<EventModel> getEvents(){
@@ -156,7 +166,6 @@ public class MainActivity extends AppCompatActivity {
                     public void onLongItemClick(View view, int position) {
                         // do whatever
                     }
-
                 })
         );
     }
