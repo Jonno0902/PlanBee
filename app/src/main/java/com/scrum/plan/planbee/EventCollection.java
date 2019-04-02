@@ -43,7 +43,7 @@ public class EventCollection {
                 3 ));
         events.add(new Event("Cinema",
                 "7pm March 8th",
-                "Odean, 2 Manor Road, Leeds, LS18 4DX,",
+                "Odean, 2 Manor Road, Leeds, LS18 4DX",
                 "Dave Powers",
                 "Cinema crew",
                 "Bring popcorn - or don't because you're not allowed to.",
@@ -83,6 +83,49 @@ public class EventCollection {
                 "Neam Tame",
                 "We meet, we eat, we greet, we take a seat, it's pretty neat.",
                 9 ));
+        events.add(new Event("Toy Story 4",
+                "7pm March 29th",
+                "Odean, 2 Manor Road, Leeds, LS18 4DX",
+                "Dave Powers",
+                "Cinema crew",
+                "Toy story 3 ++",
+                10 ));
+        events.add(new Event("Reading Festival",
+                "2pm August 23rd",
+                "Richfield Avenue, Reading",
+                "Nick Rhymes",
+                "inFest",
+                "Drinking, smoking, drinking. It's gonna be lit!",
+                11 ));
+        events.add(new Event("Bournemouth FC",
+                "7pm March 30th",
+                "Kings Park, 2 Herbens, Bournemouth, BH12 8NN",
+                "Andy Seb",
+                "The Lads",
+                "Cherries destroy their bitter rivals - ants.",
+                12 ));
+        events.add(new Event("Basketball",
+                "7pm April 6th",
+                "Talbot Campus, Fern Barrow, Poole BH12 5BB",
+                "Jace Mendez",
+                "BasketTroll",
+                "An open game of basketball for anyone that's rad enough!",
+                13 ));
+        events.add(new Event("Board game cafe",
+                "8pm April 7th",
+                "Talbot Campus, Fern Barrow, Poole BH12 5BB",
+                "Jonno Clarke",
+                "Board game cafe",
+                "We meet again.",
+                14 ));
+        events.add(new Event("Sand sculpture festival",
+                "10am June 7th",
+                "Bournemouth Beach, Bournemouth, BH2 5AA",
+                "Jace Mendez",
+                "Sandtas",
+                "An oppertunity for anyone to showcase their artistic brilliance. Bring out the inner child!",
+                15 ));
+
     }
     public ArrayList<Event> getEvents() {
         return events;
@@ -101,16 +144,16 @@ class Event{
     private String host;
     private String groupName;
     private String description;
-    private int imageIndex;
+    private int eventID;
 
-    public Event(String name, String date, String location, String host, String groupName, String description, int imageIndex) {
+    public Event(String name, String date, String location, String host, String groupName, String description, int eventID) {
         this.name = name;
         this.date = date;
         this.location = location;
         this.host = host;
         this.groupName = groupName;
         this.description = description;
-        this.imageIndex = imageIndex;
+        this.eventID = eventID;
     }
 
     public Event(int imageIndex){
@@ -120,7 +163,7 @@ class Event{
         this.host = "";
         this.groupName = "";
         this.description = "";
-        this.imageIndex = imageIndex;
+        this.eventID = imageIndex;
     }
 
 
@@ -165,11 +208,11 @@ class Event{
     }
 
     public int getImageIndex() {
-        return imageIndex;
+        return eventID;
     }
 
     public void setImageIndex(int imageIndex) {
-        this.imageIndex = imageIndex;
+        this.eventID = imageIndex;
     }
 
     public String getName() {

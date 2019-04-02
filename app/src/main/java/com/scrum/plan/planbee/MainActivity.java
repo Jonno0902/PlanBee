@@ -16,6 +16,8 @@ import android.widget.ImageButton;
 import java.util.ArrayList;
 import java.util.Calendar;
 
+import static com.scrum.plan.planbee.MyEventsActivity.EXTRA_POS;
+
 public class MainActivity extends AppCompatActivity {
     private RecyclerView upcomingView, nearbyView, recommendedView, sponsoredView, popularView, top10View, newView;
     private ArrayList<ScrollerModel> imageModelArrayList;
@@ -24,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
     //Arrays for the title and image of each item in the event scroller
     private int[] scrollerImages = new int[]{R.drawable.toy_story_4_icon, R.drawable.reading_festival_icon, R.drawable.bournemouth_fc_logo, R.drawable.basketball_icon, R.drawable.board_game_cafe_icon, R.drawable.sand_sculpture_logo};
     private String[] scrollerTitles = new String[]{"Toy Story 4", "Reading festival", "Bournemouth FC", "Basketball", "Board game cafe", "Sand sculpture festival"};
+    private int[] scrollerEventIDs = new int[]{10,11,12,13,14,15};
 
     private ImageButton btnOpenNav;
 
@@ -51,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
         popularView.setAdapter(adapter);
         top10View.setAdapter(adapter);
         newView.setAdapter(adapter);
+
         upcomingView.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, false));
         nearbyView.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, false));
         recommendedView.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, false));
@@ -58,6 +62,14 @@ public class MainActivity extends AppCompatActivity {
         popularView.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, false));
         top10View.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, false));
         newView.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, false));
+
+        addListener(upcomingView);
+        addListener(nearbyView);
+        addListener(recommendedView);
+        addListener(sponsoredView);
+        addListener(popularView);
+        addListener(top10View);
+        addListener(newView);
 
         navView = findViewById(R.id.nav_view);
         navView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
@@ -115,5 +127,24 @@ public class MainActivity extends AppCompatActivity {
             events.add(scrollerModel);
         }
         return events;
+    }
+    private void addListener(RecyclerView view) {
+        view.addOnItemTouchListener(
+                new RecyclerItemClickListener(this, view, new RecyclerItemClickListener.OnItemClickListener() {
+
+                    @Override
+                    public void onItemClick(View view, int position) {
+                        Intent intent = new Intent(MainActivity.this, ViewEventActivity.class);
+                        intent.putExtra(EXTRA_POS, scrollerEventIDs[position]);
+                        startActivity(intent);
+                    }
+
+                    @Override
+                    public void onLongItemClick(View view, int position) {
+                        // do whatever
+                    }
+
+                })
+        );
     }
 }
