@@ -14,7 +14,9 @@ import android.widget.Button;
 import android.widget.ImageButton;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
+import java.util.List;
 
 import static com.scrum.plan.planbee.MyEventsActivity.EXTRA_POS;
 
@@ -45,8 +47,19 @@ public class MainActivity extends AppCompatActivity {
         top10View = findViewById(R.id.top10_events_recycler);
         newView = findViewById(R.id.new_events_recycler);
 
+        List<RecyclerView> viewList = Arrays.asList(upcomingView, nearbyView, recommendedView, sponsoredView, popularView, top10View, newView);
+
         imageModelArrayList = getEvents();
         adapter = new EventAdapter(this, imageModelArrayList);
+
+        //viewList.stream().map(view -> view.setAdapter(adapter));
+        for(RecyclerView view: viewList){
+            view.setAdapter(adapter);
+            view.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, false));
+            addListener(view);
+        }
+
+        /*
         upcomingView.setAdapter(adapter);
         nearbyView.setAdapter(adapter);
         recommendedView.setAdapter(adapter);
@@ -69,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
         addListener(sponsoredView);
         addListener(popularView);
         addListener(top10View);
-        addListener(newView);
+        addListener(newView);*/
 
         navView = findViewById(R.id.nav_view);
         navView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {

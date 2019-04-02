@@ -27,6 +27,7 @@ public class GroupChats extends AppCompatActivity {
     private int[] chatIcons = new int[]{R.drawable.chat_cinema, R.drawable.chat_climbing, R.drawable.chat_paintballing, R.drawable.chat_board_game, R.drawable.chat_bu, R.drawable.chat_bpi, R.drawable.chat_default, R.drawable.chat_default, R.drawable.chat_trumpet, R.drawable.chat_scrum, R.drawable.chat_11};
     private String[] chatUpcoming = new String[]{"Odeon\nMarch 15th", "The Project\nMarch 8th", "BU Paintball\nMarch 22nd", "", "", "Talbot Campus\nMarch 3rd", "", "", "", "", "Talbot Campus\nMarch 5th"};
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

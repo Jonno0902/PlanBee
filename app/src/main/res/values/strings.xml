@@ -24,6 +24,8 @@
     <string name="view_event_GroupName">Public/Group Name:</string>
     <string name="view_event_Description">Description</string>
 
+    <string name="calendar_Confirm">Bee there</string>
+    <string name="calendar_More_Info">More Information</string>
 
     <string name="login_title">Login to PlanBee</string>
     <string name="login_forgot_password_text">Forgotten your password? Reset Password</string>
