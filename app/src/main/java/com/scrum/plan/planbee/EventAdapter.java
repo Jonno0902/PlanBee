@@ -17,18 +17,18 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import java.util.ArrayList;
 
-public class ScrollerAdapter extends RecyclerView.Adapter<ScrollerAdapter.EventViewHolder> {
+public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventViewHolder> {
 
     private LayoutInflater inflater;
-    private ArrayList<ScrollerModel> eventImageList;
+    private ArrayList<EventModel> eventList;
 
-    public ScrollerAdapter(Context ctx, ArrayList<ScrollerModel> eventImageList){
+    public EventAdapter(Context ctx, ArrayList<EventModel> eventImageList){
         inflater = LayoutInflater.from(ctx);
-        this.eventImageList = eventImageList;
+        this.eventList = eventImageList;
     }
 
     @Override
-    public ScrollerAdapter.EventViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public EventAdapter.EventViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = inflater.inflate(R.layout.event_item, parent, false);
         EventViewHolder holder = new EventViewHolder(view);
 
@@ -36,24 +36,24 @@ public class ScrollerAdapter extends RecyclerView.Adapter<ScrollerAdapter.EventV
     }
 
     @Override
-    public void onBindViewHolder(ScrollerAdapter.EventViewHolder holder, int position) {
-        holder.eventImage.setImageResource(eventImageList.get(position).getImage_drawable());
-        //holder.eventTitle.setText(imageModelArrayList.get(position).getName());
+    public void onBindViewHolder(EventAdapter.EventViewHolder holder, int position) {
+        holder.eventImage.setImageResource(eventList.get(position).getImage_drawable());
+        holder.eventTitle.setText(eventList.get(position).getName());
     }
 
     @Override
     public int getItemCount() {
-        return eventImageList.size();
+        return eventList.size();
     }
 
     class EventViewHolder extends RecyclerView.ViewHolder{
-        //TextView eventTitle;
+        TextView eventTitle;
         ImageView eventImage;
 
         public EventViewHolder(View itemView) {
             super(itemView);
-            //eventTitle = (TextView) itemView.findViewById(R.id.tv);
-            eventImage = (ImageView) itemView.findViewById(R.id.iv);
+            eventTitle = itemView.findViewById(R.id.tv);
+            eventImage = itemView.findViewById(R.id.iv);
         }
 
     }

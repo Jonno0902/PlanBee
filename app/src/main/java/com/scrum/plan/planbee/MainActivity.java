@@ -18,12 +18,12 @@ import java.util.Calendar;
 
 public class MainActivity extends AppCompatActivity {
     private RecyclerView upcomingView, nearbyView, recommendedView, sponsoredView, popularView, top10View, newView;
-    private ArrayList<ScrollerModel> imageModelArrayList;
-    private ScrollerAdapter adapter;
+    private ArrayList<EventModel> imageModelArrayList;
+    private EventAdapter adapter;
 
     //Arrays for the title and image of each item in the event scroller
-    private int[] scrollerImages = new int[]{R.drawable.toy_story_4_icon, R.drawable.reading_festival_icon, R.drawable.bournemouth_fc_logo, R.drawable.basketball_icon, R.drawable.board_game_cafe_icon, R.drawable.sand_sculpture_logo};
-    private String[] scrollerTitles = new String[]{"Toy Story 4", "Reading festival", "Bournemouth FC", "Basketball", "Board game cafe", "Sand sculpture festival"};
+    private int[] eventImages = new int[]{R.drawable.toy_story_4_icon, R.drawable.reading_festival_icon, R.drawable.bournemouth_fc_logo, R.drawable.basketball_icon, R.drawable.board_game_cafe_icon, R.drawable.sand_sculpture_logo};
+    private String[] eventTitles = new String[]{"Toy Story 4", "Reading festival", "AFC Bournemouth", "Basketball", "Board game cafe", "Sand sculptures"};
 
     private ImageButton btnOpenNav;
 
@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
         newView = findViewById(R.id.new_events_recycler);
 
         imageModelArrayList = getEvents();
-        adapter = new ScrollerAdapter(this, imageModelArrayList);
+        adapter = new EventAdapter(this, imageModelArrayList);
         upcomingView.setAdapter(adapter);
         nearbyView.setAdapter(adapter);
         recommendedView.setAdapter(adapter);
@@ -105,14 +105,14 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private ArrayList<ScrollerModel> getEvents(){
-        ArrayList<ScrollerModel> events = new ArrayList<>();
+    private ArrayList<EventModel> getEvents(){
+        ArrayList<EventModel> events = new ArrayList<>();
 
-        for(int i = 0; i < scrollerImages.length; i++){
-            ScrollerModel scrollerModel = new ScrollerModel();
-            scrollerModel.setName(scrollerTitles[i]);
-            scrollerModel.setImage_drawable(scrollerImages[i]);
-            events.add(scrollerModel);
+        for(int i = 0; i < eventImages.length; i++){
+            EventModel EventModel = new EventModel();
+            EventModel.setName(eventTitles[i]);
+            EventModel.setImage_drawable(eventImages[i]);
+            events.add(EventModel);
         }
         return events;
     }
