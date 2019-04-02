@@ -17,6 +17,14 @@
     <string name="my_events_title">My events</string>
     <string name="my_events_icon_description">Icon for an event</string>
 
+    <string name="view_event_icon_description">Icon for view event</string>
+    <string name="view_event_Date">Date:</string>
+    <string name="view_event_Location">Location:</string>
+    <string name="view_event_Host">Host:</string>
+    <string name="view_event_GroupName">Public/Group Name:</string>
+    <string name="view_event_Description">Description</string>
+
+
     <string name="login_title">Login to PlanBee</string>
     <string name="login_forgot_password_text">Forgotten your password? Reset Password</string>
     <string name="login_create_account_text">Don’t have an account? Create Account</string>

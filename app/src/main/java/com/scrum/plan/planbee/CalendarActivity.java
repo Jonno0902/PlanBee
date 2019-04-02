@@ -20,7 +20,8 @@ import java.time.MonthDay;
 import java.time.format.TextStyle;
 import java.util.Date;
 
-public class CalendarActivity extends AppCompatActivity {
+public class
+CalendarActivity extends AppCompatActivity {
     private NavigationView navView;
     private DrawerLayout drawLayout;
     private ImageButton btnOpenNav;
@@ -57,6 +58,9 @@ public class CalendarActivity extends AppCompatActivity {
                     case R.id.nav_calendar:
                         //already here
                         break;
+                    case R.id.nav_my_events:
+                        startActivity(new Intent(CalendarActivity.this, CalendarActivity.class));
+                        break;
                 }
                 return false;
             }
@@ -80,6 +84,7 @@ public class CalendarActivity extends AppCompatActivity {
 
         txtEventTitle = findViewById(R.id.calendarText);
         txtEventTitle.setText("No events today");
+
 
         calendar.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override

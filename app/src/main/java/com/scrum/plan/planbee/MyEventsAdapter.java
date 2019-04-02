@@ -1,6 +1,7 @@
 package com.scrum.plan.planbee;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,7 +32,6 @@ public class MyEventsAdapter extends RecyclerView.Adapter<MyEventsAdapter.EventV
     public MyEventsAdapter.EventViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = inflater.inflate(R.layout.my_event_item, parent, false);
         EventViewHolder holder = new EventViewHolder(view);
-
         return holder;
     }
 
@@ -47,7 +47,7 @@ public class MyEventsAdapter extends RecyclerView.Adapter<MyEventsAdapter.EventV
         return myEventsList.size();
     }
 
-    class EventViewHolder extends RecyclerView.ViewHolder{
+    class EventViewHolder extends RecyclerView.ViewHolder {
         TextView eventTitle, eventUpcoming;
         ImageView eventIcon;
 
@@ -56,6 +56,7 @@ public class MyEventsAdapter extends RecyclerView.Adapter<MyEventsAdapter.EventV
             eventTitle = itemView.findViewById(R.id.my_event_title);
             eventUpcoming = itemView.findViewById(R.id.my_event_upcoming);
             eventIcon = itemView.findViewById(R.id.my_event_icon);
+
         }
     }
 }
