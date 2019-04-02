@@ -14,3 +14,5 @@ app/src/main/res/layout/activity_group_chats_backup.xml
 gradle/wrapper/gradle-wrapper.properties
 build.gradle
 app/build.gradle
+build.gradle
+.idea/misc.xml

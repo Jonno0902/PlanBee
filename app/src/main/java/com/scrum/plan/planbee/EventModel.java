@@ -1,6 +1,6 @@
 package com.scrum.plan.planbee;
 
-public class ScrollerModel {
+public class EventModel {
     private String name;
     private int image_drawable;
 
