@@ -24,7 +24,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".LoginActivity" />
-        <activity android:name=".GroupChats" />
+        <activity android:name=".GroupChatsActivity" />
         <activity android:name=".CalendarActivity" />
 
         <!--

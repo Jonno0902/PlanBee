@@ -67,6 +67,9 @@ public class ViewEventActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(MenuItem navItem) {
                 int itemId = navItem.getItemId();
                 switch (itemId) {
+                    case R.id.nav_home:
+                        startActivity(new Intent(ViewEventActivity.this, MainActivity.class));
+                        break;
                     case R.id.nav_login:
                         startActivity(new Intent(ViewEventActivity.this, LoginActivity.class));
                         break;
@@ -74,7 +77,7 @@ public class ViewEventActivity extends AppCompatActivity {
                         startActivity(new Intent(ViewEventActivity.this, CreateAccountActivity.class));
                         break;
                     case R.id.nav_group_chats:
-                        startActivity(new Intent(ViewEventActivity.this, GroupChats.class));
+                        startActivity(new Intent(ViewEventActivity.this, GroupChatsActivity.class));
                         break;
                     case R.id.nav_map:
                         startActivity(new Intent(ViewEventActivity.this, MapActivity.class));

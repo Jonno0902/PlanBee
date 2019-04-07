@@ -14,7 +14,7 @@ import android.widget.ImageButton;
 
 import java.util.ArrayList;
 
-public class GroupChats extends AppCompatActivity {
+public class GroupChatsActivity extends AppCompatActivity {
     private ImageButton btnOpenNav;
     private NavigationView navView;
     private DrawerLayout drawLayout;
@@ -39,26 +39,29 @@ public class GroupChats extends AppCompatActivity {
             public boolean onNavigationItemSelected(MenuItem navItem) {
                 int itemId = navItem.getItemId();
                 switch (itemId) {
+                    case R.id.nav_home:
+                        startActivity(new Intent(GroupChatsActivity.this, MainActivity.class));
+                        break;
                     case R.id.nav_login:
-                        startActivity(new Intent(GroupChats.this, LoginActivity.class));
+                        startActivity(new Intent(GroupChatsActivity.this, LoginActivity.class));
                         break;
                     case R.id.nav_create_account:
-                        startActivity(new Intent(GroupChats.this, CreateAccountActivity.class));
+                        startActivity(new Intent(GroupChatsActivity.this, CreateAccountActivity.class));
                         break;
                     case R.id.nav_group_chats:
                         //already open
                         break;
                     case R.id.nav_map:
-                        startActivity(new Intent(GroupChats.this, MapActivity.class));
+                        startActivity(new Intent(GroupChatsActivity.this, MapActivity.class));
                         break;
                     case R.id.nav_browse_events:
-                        startActivity(new Intent(GroupChats.this, MainActivity.class));
+                        startActivity(new Intent(GroupChatsActivity.this, MainActivity.class));
                         break;
                     case R.id.nav_calendar:
-                        startActivity(new Intent(GroupChats.this, CalendarActivity.class));
+                        startActivity(new Intent(GroupChatsActivity.this, CalendarActivity.class));
                         break;
                     case R.id.nav_my_events:
-                        startActivity(new Intent(GroupChats.this, CalendarActivity.class));
+                        startActivity(new Intent(GroupChatsActivity.this, CalendarActivity.class));
                         break;
                 }
                 return false;

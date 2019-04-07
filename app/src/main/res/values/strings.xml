@@ -46,6 +46,7 @@
     <string name="create_account_password_hint">Password</string>
     <string name="create_account_confirm_password_hint">Confirm Password</string>
 
+    <string name="nav_home_title">Home</string>
     <string name="nav_group_chats_title">Group chats</string>
     <string name="nav_events_title">Events</string>
     <string name="nav_my_events_title">My events</string>

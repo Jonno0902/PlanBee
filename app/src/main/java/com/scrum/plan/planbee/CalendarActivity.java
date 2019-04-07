@@ -49,6 +49,9 @@ CalendarActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(MenuItem navItem) {
                 int itemId = navItem.getItemId();
                 switch (itemId) {
+                    case R.id.nav_home:
+                        startActivity(new Intent(CalendarActivity.this, MainActivity.class));
+                        break;
                     case R.id.nav_login:
                         startActivity(new Intent(CalendarActivity.this, LoginActivity.class));
                         break;
@@ -56,7 +59,7 @@ CalendarActivity extends AppCompatActivity {
                         startActivity(new Intent(CalendarActivity.this, CreateAccountActivity.class));
                         break;
                     case R.id.nav_group_chats:
-                        startActivity(new Intent(CalendarActivity.this, GroupChats.class));
+                        startActivity(new Intent(CalendarActivity.this, GroupChatsActivity.class));
                         break;
                     case R.id.nav_map:
                         startActivity(new Intent(CalendarActivity.this, MapActivity.class));
