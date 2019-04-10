@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
@@ -24,11 +25,36 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView upcomingView, nearbyView, recommendedView, sponsoredView, popularView, top10View, newView;
     private ArrayList<EventModel> imageModelArrayList;
     private EventAdapter adapter;
+    private EventAdapter adapterUpcoming, adapterNearby, adapterRecommended, adapterSponsored, adapterMusic, adapterPopular, adapterTop;
 
     //Arrays for the title and image of each item in the event scroller
-    private int[] eventImages = new int[]{R.drawable.toy_story_4_icon, R.drawable.reading_festival_icon, R.drawable.bournemouth_fc_logo, R.drawable.basketball_icon, R.drawable.board_game_cafe_icon, R.drawable.sand_sculpture_logo};
-    private String[] eventTitles = new String[]{"Toy Story 4", "Reading festival", "AFC Bournemouth", "Basketball", "Board game cafe", "Sand sculptures"};
-    private int[] eventIDs = new int[]{10,11,12,13,14,15};
+    private int[] upcomingImages = new int[]{R.drawable.toy_story_4_icon, R.drawable.litter, R.drawable.avatar, R.drawable.write, R.drawable.ted, R.drawable.cocktail, R.drawable.pie};
+    private String[] upcomingTitles = new String[]{"Toy Story 4", "Litter pick", "Avatar 2", "Basketball", "TED Talk BU", "Cocktail making", "Pie eating contest"};
+    private int[] eventIDs = new int[]{10,11,12,13,14,15,16};
+
+    private int[] nearbyImages = new int[]{R.drawable.beach, R.drawable.church, R.drawable.library, R.drawable.bloom, R.drawable.surf, R.drawable.arrow, R.drawable.bournemouth_fc_logo};
+    private String[] nearbyTitles = new String[]{"BU Beach party", "BU Church", "Library reading", "Bloom", "BU Surf club", "Red arrows", "AFC Bournemouth"};
+    private int[] nearbyIDs = new int[]{10,11,12,13,14,15,16};
+
+    private int[] recommendedImages = new int[]{R.drawable.toy_story_4_icon, R.drawable.reading_festival_icon, R.drawable.bournemouth_fc_logo, R.drawable.basketball_icon, R.drawable.board_game_cafe_icon, R.drawable.sand_sculpture_logo, R.drawable.sand_sculpture_logo};
+    private String[] recommendedTitles = new String[]{"Toy Story 4", "Reading festival", "AFC Bournemouth", "Basketball", "Board game cafe", "Sand sculptures", "Sand sculptures"};
+    private int[] recommendedIDs = new int[]{10,11,12,13,14,15,16};
+
+    private int[] sponsoredImages = new int[]{R.drawable.gold, R.drawable.gucci, R.drawable.coke, R.drawable.holiday, R.drawable.car, R.drawable.cruise, R.drawable.plane};
+    private String[] sponsoredTitles = new String[]{"Gold5Cash", "Buy Gucci", "Drink coke", "Cheap holidays", "Car insurance", "Cruises", "Cheap flights"};
+    private int[] sponsoredIDs = new int[]{10,11,12,13,14,15,16};
+
+    private int[] musicImages = new int[]{R.drawable.bu_ball, R.drawable.music_learn, R.drawable.music1, R.drawable.music3, R.drawable.music4, R.drawable.reading_festival_icon, R.drawable.singing};
+    private String[] musicTitles = new String[]{"BU Summer Ball", "Music festival", "BU orchestra", "Old Sound", "Sound of Music", "Reading festival", "Singers"};
+    private int[] musicIDs = new int[]{10,11,12,13,14,15,16};
+
+    private int[] popularImages = new int[]{R.drawable.bgt, R.drawable.coffee, R.drawable.club, R.drawable.grandnational, R.drawable.boxing, R.drawable.george, R.drawable.world};
+    private String[] popularTitles = new String[]{"BGT", "Coffee morning", "Club night", "Grand national", "Tyson vs Tyler", "St George's day", "World to town"};
+    private int[] popularIDs = new int[]{10,11,12,13,14,15,16};
+
+    private int[] topImages = new int[]{R.drawable.top, R.drawable.zoo, R.drawable.mayday, R.drawable.fish, R.drawable.board_game_cafe_icon, R.drawable.firework, R.drawable.sand_sculpture_logo};
+    private String[] topTitles = new String[]{"City views", "Zoo day", "May day fair", "Aquarium", "Aquarium", "Fireworks", "Sand sculptures"};
+    private int[] topIDs = new int[]{10,11,12,13,14,15,16};
 
     private ImageButton btnOpenNav;
     private ImageButton btnOpenSettings;
@@ -51,14 +77,30 @@ public class MainActivity extends AppCompatActivity {
 
         List<RecyclerView> viewList = Arrays.asList(upcomingView, nearbyView, recommendedView, sponsoredView, popularView, top10View, newView);
 
-        imageModelArrayList = getEvents();
+        adapterUpcoming = new EventAdapter(this, getEvents("upcoming"));
+        adapterNearby = new EventAdapter(this, getEvents("nearby"));
+        adapterRecommended = new EventAdapter(this, getEvents("recommended"));
+        adapterSponsored = new EventAdapter(this, getEvents("sponsored"));
+        adapterMusic = new EventAdapter(this, getEvents("music"));
+        adapterPopular = new EventAdapter(this, getEvents("popular"));
+        adapterTop = new EventAdapter(this, getEvents("top"));
+        ArrayList<EventAdapter> adapters = new ArrayList<>();
+        adapters.add(adapterUpcoming);
+        adapters.add(adapterNearby);
+        adapters.add(adapterMusic);
+        adapters.add(adapterRecommended);
+        adapters.add(adapterSponsored);
+        adapters.add(adapterPopular);
+        adapters.add(adapterTop);
+
         adapter = new EventAdapter(this, imageModelArrayList);
 
-        //viewList.stream().map(view -> view.setAdapter(adapter));
+        int count = 0;
         for(RecyclerView view: viewList){
-            view.setAdapter(adapter);
+            view.setAdapter(adapters.get(count));
             view.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, false));
             addListener(view);
+            count++;
         }
 
         /*
@@ -141,33 +183,85 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private ArrayList<EventModel> getEvents(){
+    private ArrayList<EventModel> getEvents(String event){
         ArrayList<EventModel> events = new ArrayList<>();
 
-        for(int i = 0; i < eventImages.length; i++){
-            EventModel EventModel = new EventModel();
-            EventModel.setName(eventTitles[i]);
-            EventModel.setImage_drawable(eventImages[i]);
-            events.add(EventModel);
+        switch(event) {
+            case "upcoming":
+                for (int i = 0; i < upcomingImages.length; i++) {
+                    EventModel EventModel = new EventModel();
+                    EventModel.setName(upcomingTitles[i]);
+                    EventModel.setImage_drawable(upcomingImages[i]);
+                    events.add(EventModel);
+                }
+                break;
+            case "nearby":
+                for (int i = 0; i < nearbyImages.length; i++) {
+                    EventModel EventModel = new EventModel();
+                    EventModel.setName(nearbyTitles[i]);
+                    EventModel.setImage_drawable(nearbyImages[i]);
+                    events.add(EventModel);
+                }
+                break;
+            case "recommended":
+                for (int i = 0; i < recommendedImages.length; i++) {
+                    EventModel EventModel = new EventModel();
+                    EventModel.setName(recommendedTitles[i]);
+                    EventModel.setImage_drawable(recommendedImages[i]);
+                    events.add(EventModel);
+                }
+                break;
+            case "sponsored":
+                for (int i = 0; i < sponsoredImages.length; i++) {
+                    EventModel EventModel = new EventModel();
+                    EventModel.setName(sponsoredTitles[i]);
+                    EventModel.setImage_drawable(sponsoredImages[i]);
+                    events.add(EventModel);
+                }
+                break;
+            case "music":
+                for (int i = 0; i < musicImages.length; i++) {
+                    EventModel EventModel = new EventModel();
+                    EventModel.setName(musicTitles[i]);
+                    EventModel.setImage_drawable(musicImages[i]);
+                    events.add(EventModel);
+                }
+                break;
+            case "popular":
+                for (int i = 0; i < popularImages.length; i++) {
+                    EventModel EventModel = new EventModel();
+                    EventModel.setName(popularTitles[i]);
+                    EventModel.setImage_drawable(popularImages[i]);
+                    events.add(EventModel);
+                }
+                break;
+            case "top":
+                for (int i = 0; i < topImages.length; i++) {
+                    EventModel EventModel = new EventModel();
+                    EventModel.setName(topTitles[i]);
+                    EventModel.setImage_drawable(topImages[i]);
+                    events.add(EventModel);
+                }
+                break;
         }
         return events;
     }
     private void addListener(RecyclerView view) {
         view.addOnItemTouchListener(
-                new RecyclerItemClickListener(this, view, new RecyclerItemClickListener.OnItemClickListener() {
+            new RecyclerItemClickListener(this, view, new RecyclerItemClickListener.OnItemClickListener() {
 
-                    @Override
-                    public void onItemClick(View view, int position) {
-                        Intent intent = new Intent(MainActivity.this, ViewEventActivity.class);
-                        intent.putExtra(EXTRA_POS, eventIDs[position]);
-                        startActivity(intent);
-                    }
+                @Override
+                public void onItemClick(View view, int position) {
+                    Intent intent = new Intent(MainActivity.this, ViewEventActivity.class);
+                    intent.putExtra(EXTRA_POS, eventIDs[position]);
+                    startActivity(intent);
+                }
 
-                    @Override
-                    public void onLongItemClick(View view, int position) {
-                        // do whatever
-                    }
-                })
+                @Override
+                public void onLongItemClick(View view, int position) {
+                    // Long click
+                }
+            })
         );
     }
 }
