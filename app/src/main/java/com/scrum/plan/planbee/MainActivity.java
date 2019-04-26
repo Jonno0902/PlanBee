@@ -17,44 +17,49 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
+import java.util.Hashtable;
 import java.util.List;
 
 import static com.scrum.plan.planbee.MyEventsActivity.EXTRA_POS;
 
 public class MainActivity extends AppCompatActivity {
     private RecyclerView upcomingView, nearbyView, recommendedView, sponsoredView, popularView, top10View, newView;
-    private ArrayList<EventModel> imageModelArrayList;
-    private EventAdapter adapter;
     private EventAdapter adapterUpcoming, adapterNearby, adapterRecommended, adapterSponsored, adapterMusic, adapterPopular, adapterTop;
+
+
 
     //Arrays for the title and image of each item in the event scroller
     private int[] upcomingImages = new int[]{R.drawable.toy_story_4_icon, R.drawable.litter, R.drawable.avatar, R.drawable.write, R.drawable.ted, R.drawable.cocktail, R.drawable.pie};
-    private String[] upcomingTitles = new String[]{"Toy Story 4", "Litter pick", "Avatar 2", "Basketball", "TED Talk BU", "Cocktail making", "Pie eating contest"};
-    private int[] eventIDs = new int[]{10,11,12,13,14,15,16};
+    private String[] upcomingTitles = new String[]{"Toy Story 4", "Litter pick", "Avatar 2", "Writing Club", "TED Talk BU", "Cocktail making", "Pie eating contest"};
+    private int[] eventIDs = new int[]{10,16,17,18,19,20,21};
 
     private int[] nearbyImages = new int[]{R.drawable.beach, R.drawable.church, R.drawable.library, R.drawable.bloom, R.drawable.surf, R.drawable.arrow, R.drawable.bournemouth_fc_logo};
     private String[] nearbyTitles = new String[]{"BU Beach party", "BU Church", "Library reading", "Bloom", "BU Surf club", "Red arrows", "AFC Bournemouth"};
-    private int[] nearbyIDs = new int[]{10,11,12,13,14,15,16};
+    private int[] nearbyIDs = new int[]{22,23,24,25,26,27,28};
 
-    private int[] recommendedImages = new int[]{R.drawable.toy_story_4_icon, R.drawable.reading_festival_icon, R.drawable.bournemouth_fc_logo, R.drawable.basketball_icon, R.drawable.board_game_cafe_icon, R.drawable.sand_sculpture_logo, R.drawable.sand_sculpture_logo};
-    private String[] recommendedTitles = new String[]{"Toy Story 4", "Reading festival", "AFC Bournemouth", "Basketball", "Board game cafe", "Sand sculptures", "Sand sculptures"};
-    private int[] recommendedIDs = new int[]{10,11,12,13,14,15,16};
+    private int[] recommendedImages = new int[]{R.drawable.toy_story_4_icon, R.drawable.reading_festival_icon, R.drawable.bournemouth_fc_logo, R.drawable.basketball_icon, R.drawable.board_game_cafe_icon, R.drawable.sand_sculpture_logo, R.drawable.church};
+    private String[] recommendedTitles = new String[]{"Toy Story 4", "Reading festival", "AFC Bournemouth", "Basketball", "Board game cafe", "Sand sculptures", "BU Church"};
+    private int[] recommendedIDs = new int[]{10,11,12,13,14,15,23};
 
     private int[] sponsoredImages = new int[]{R.drawable.gold, R.drawable.gucci, R.drawable.coke, R.drawable.holiday, R.drawable.car, R.drawable.cruise, R.drawable.plane};
     private String[] sponsoredTitles = new String[]{"Gold5Cash", "Buy Gucci", "Drink coke", "Cheap holidays", "Car insurance", "Cruises", "Cheap flights"};
-    private int[] sponsoredIDs = new int[]{10,11,12,13,14,15,16};
+    private int[] sponsoredIDs = new int[]{10,11,12,13,14,15,20};
 
     private int[] musicImages = new int[]{R.drawable.bu_ball, R.drawable.music_learn, R.drawable.music1, R.drawable.music3, R.drawable.music4, R.drawable.reading_festival_icon, R.drawable.singing};
     private String[] musicTitles = new String[]{"BU Summer Ball", "Music festival", "BU orchestra", "Old Sound", "Sound of Music", "Reading festival", "Singers"};
-    private int[] musicIDs = new int[]{10,11,12,13,14,15,16};
+    private int[] musicIDs = new int[]{10,11,12,13,14,15,21};
 
     private int[] popularImages = new int[]{R.drawable.bgt, R.drawable.coffee, R.drawable.club, R.drawable.grandnational, R.drawable.boxing, R.drawable.george, R.drawable.world};
     private String[] popularTitles = new String[]{"BGT", "Coffee morning", "Club night", "Grand national", "Tyson vs Tyler", "St George's day", "World to town"};
-    private int[] popularIDs = new int[]{10,11,12,13,14,15,16};
+    private int[] popularIDs = new int[]{10,11,12,13,14,15,22};
 
     private int[] topImages = new int[]{R.drawable.top, R.drawable.zoo, R.drawable.mayday, R.drawable.fish, R.drawable.board_game_cafe_icon, R.drawable.firework, R.drawable.sand_sculpture_logo};
     private String[] topTitles = new String[]{"City views", "Zoo day", "May day fair", "Aquarium", "Aquarium", "Fireworks", "Sand sculptures"};
-    private int[] topIDs = new int[]{10,11,12,13,14,15,16};
+    private int[] topIDs = new int[]{10,11,12,13,14,15,24};
+
+    private Hashtable<RecyclerView,int[]> viewImageTable  = new Hashtable<>();
+
+
 
     private ImageButton btnOpenNav;
     private ImageButton btnOpenSettings;
@@ -93,7 +98,15 @@ public class MainActivity extends AppCompatActivity {
         adapters.add(adapterPopular);
         adapters.add(adapterTop);
 
-        adapter = new EventAdapter(this, imageModelArrayList);
+
+        //for each RecycleView map to a list of id's
+        viewImageTable.put(upcomingView,eventIDs);
+        viewImageTable.put(nearbyView,nearbyIDs);
+        viewImageTable.put(recommendedView, sponsoredIDs );
+        viewImageTable.put(sponsoredView, recommendedIDs);
+        viewImageTable.put(popularView,popularIDs );
+        viewImageTable.put(top10View,topIDs);
+        viewImageTable.put(newView,musicIDs);
 
         int count = 0;
         for(RecyclerView view: viewList){
@@ -103,30 +116,8 @@ public class MainActivity extends AppCompatActivity {
             count++;
         }
 
-        /*
-        upcomingView.setAdapter(adapter);
-        nearbyView.setAdapter(adapter);
-        recommendedView.setAdapter(adapter);
-        sponsoredView.setAdapter(adapter);
-        popularView.setAdapter(adapter);
-        top10View.setAdapter(adapter);
-        newView.setAdapter(adapter);
 
-        upcomingView.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, false));
-        nearbyView.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, false));
-        recommendedView.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, false));
-        sponsoredView.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, false));
-        popularView.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, false));
-        top10View.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, false));
-        newView.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, false));
 
-        addListener(upcomingView);
-        addListener(nearbyView);
-        addListener(recommendedView);
-        addListener(sponsoredView);
-        addListener(popularView);
-        addListener(top10View);
-        addListener(newView);*/
 
         navView = findViewById(R.id.nav_view);
         navView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
@@ -247,13 +238,14 @@ public class MainActivity extends AppCompatActivity {
         return events;
     }
     private void addListener(RecyclerView view) {
+        final int[] idList = viewImageTable.get(view);
         view.addOnItemTouchListener(
             new RecyclerItemClickListener(this, view, new RecyclerItemClickListener.OnItemClickListener() {
 
                 @Override
                 public void onItemClick(View view, int position) {
                     Intent intent = new Intent(MainActivity.this, ViewEventActivity.class);
-                    intent.putExtra(EXTRA_POS, eventIDs[position]);
+                    intent.putExtra(EXTRA_POS, idList[position] );
                     startActivity(intent);
                 }
 

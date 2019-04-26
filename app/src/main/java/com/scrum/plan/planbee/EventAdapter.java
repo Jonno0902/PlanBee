@@ -31,7 +31,6 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventViewHol
     public EventAdapter.EventViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = inflater.inflate(R.layout.event_item, parent, false);
         EventViewHolder holder = new EventViewHolder(view);
-
         return holder;
     }
 
@@ -45,6 +44,10 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventViewHol
     public int getItemCount() {
         return eventList.size();
     }
+
+
+
+
 
     class EventViewHolder extends RecyclerView.ViewHolder{
         TextView eventTitle;

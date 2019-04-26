@@ -41,8 +41,8 @@ public class ViewEventActivity extends AppCompatActivity {
         setContentView(R.layout.activity_view_event);
 
         EventCollection events = new EventCollection();
-        events.generateEvents();
-        Event event = events.getEvents().get(eventIndex);
+        events.generateEvent(eventIndex);
+        Event event = events.getEvent(eventIndex);
 
         txtEventTitle = findViewById(R.id.txtEventTitle);
         txtDate = findViewById(R.id.txtDate);

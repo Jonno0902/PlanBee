@@ -31,7 +31,6 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.EventViewHolde
     public ChatAdapter.EventViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = inflater.inflate(R.layout.group_chat_item, parent, false);
         EventViewHolder holder = new EventViewHolder(view);
-
         return holder;
     }
 
@@ -56,6 +55,8 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.EventViewHolde
             chatTitle = itemView.findViewById(R.id.chat_title);
             chatUpcoming = itemView.findViewById(R.id.chat_upcoming);
             chatIcon = itemView.findViewById(R.id.chat_icon);
+
+
         }
     }
 }

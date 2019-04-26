@@ -9,6 +9,9 @@
     <string name="top10_events_title">Top 10 events</string>
     <string name="new_events_title">New events</string>
 
+    <string name="chat_enter_text">Enter Text </string>
+    <string name="chat_send">SEND </string>
+
     <string name="home_title">PlanBee</string>
 
     <string name="group_chats_title">Group chats</string>

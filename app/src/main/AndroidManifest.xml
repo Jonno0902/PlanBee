@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.scrum.plan.planbee">
-
     <!--
          The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
          Google Maps Android API v2, but you must specify either coarse or fine
@@ -16,6 +15,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".MessageListActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -26,7 +26,6 @@
         <activity android:name=".LoginActivity" />
         <activity android:name=".GroupChatsActivity" />
         <activity android:name=".CalendarActivity" />
-
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -46,9 +45,8 @@
         <activity android:name=".MyEventsActivity" />
         <activity
             android:name=".ViewEventActivity"
-            android:parentActivityName=".MyEventsActivity">
-        </activity>
-        <activity android:name=".SettingsActivity"></activity>
+            android:parentActivityName=".MyEventsActivity" />
+        <activity android:name=".SettingsActivity" />
     </application>
 
 </manifest>

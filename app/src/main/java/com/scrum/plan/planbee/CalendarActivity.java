@@ -103,8 +103,8 @@ CalendarActivity extends AppCompatActivity {
         final EventCollection events = new EventCollection();
         events.generateEvents();
 
-        for(com.scrum.plan.planbee.Event setEvent: events.getEvents()){
-            Event event = new Event(Color.RED,setEvent.getEpoch(),setEvent.getName());
+        for (com.scrum.plan.planbee.Event setEvent : events.getEvents()) {
+            Event event = new Event(Color.RED, setEvent.getEpoch(), setEvent.getName());
             calendar.addEvent(event);
         }
 
@@ -112,11 +112,11 @@ CalendarActivity extends AppCompatActivity {
             @Override
             public void onDayClick(Date dateClicked) {
                 Context context = getApplicationContext();
-                String date = new java.text.SimpleDateFormat("MM/dd/yyyy").format(new java.util.Date (dateClicked.getTime()));
+                String date = new java.text.SimpleDateFormat("MM/dd/yyyy").format(new java.util.Date(dateClicked.getTime()));
 
                 final LinearLayout linearLayout = (LinearLayout) findViewById(R.id.calendar_scrlNames);
 
-                if(events.getAllDates().contains(date)){
+                if (events.getAllDates().contains(date)) {
                     final int selectedIndex = events.getAllDates().indexOf(date);
                     com.scrum.plan.planbee.Event selectedEvent = events.getEvents().get(selectedIndex);
                     txtEventTitle.setText(selectedEvent.getName());
@@ -130,6 +130,7 @@ CalendarActivity extends AppCompatActivity {
                     LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
                     linearLayout.setOrientation(LinearLayout.VERTICAL);
 
+                    imgBee.setVisibility(View.INVISIBLE);
                     btnConfim.setVisibility(View.VISIBLE);
                     btnMoreInfo.setVisibility(View.VISIBLE);
 
@@ -142,8 +143,12 @@ CalendarActivity extends AppCompatActivity {
                     btnConfim.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                          names.add("You");
-                          imgBee.setVisibility(View.VISIBLE);
+                            names.add("You");
+                            if (imgBee.getVisibility() == View.INVISIBLE) {
+                                imgBee.setVisibility(View.VISIBLE);
+                            } else {
+                                imgBee.setVisibility(View.INVISIBLE);
+                            }
                         }
 
                     });
@@ -158,17 +163,16 @@ CalendarActivity extends AppCompatActivity {
 
                     });
 
-                        for(int j = 0; j < names.size(); j++) {
-                            Button button = new Button(context);
-                            button.setText(names.get(j));
-                            button.setVisibility(View.VISIBLE);
-                            button.setId(j);
-                            linearLayout.addView(button);
-                        }
+                    for (int j = 0; j < names.size(); j++) {
+                        Button button = new Button(context);
+                        button.setText(names.get(j));
+                        button.setVisibility(View.VISIBLE);
+                        button.setId(j);
+                        linearLayout.addView(button);
+                    }
 
 
-
-                }else{
+                } else {
                     txtEventTitle.setText("No Events");
                     txtTime.setText("");
                     imgBee.setVisibility(View.INVISIBLE);
@@ -177,7 +181,7 @@ CalendarActivity extends AppCompatActivity {
 
                     linearLayout.setVisibility(View.INVISIBLE);
                 }
-                txtCalendar.setText(date.substring(3,5));
+                txtCalendar.setText(date.substring(3, 5));
             }
 
             @Override
@@ -194,10 +198,6 @@ CalendarActivity extends AppCompatActivity {
         btnConfim.setVisibility(View.INVISIBLE);
         btnMoreInfo.setVisibility(View.INVISIBLE);
         imgBee.setVisibility(View.INVISIBLE);
-
-
-
-
 
 
     }
